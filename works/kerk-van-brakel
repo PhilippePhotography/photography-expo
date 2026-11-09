@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mist over de Leie</title>
+
+<link rel="stylesheet" href="../css/style.css">
+  
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+
+<div>
+<div class="logo">PHILIPPE VERLINDE</div>
+<div class="subtitle">FINE ART PHOTOGRAPHY</div>
+</div>
+
+<div class="hamburger">☰</div>
+
+</div>
+
+<div class="featured-image">
+
+<img src="../photos/kerk-brakel.jpg" alt="Mist over de Leie">
+
+</div>
+<p>◉ f/11    ⏱ 30 sec    ▭ ISO 100    ◁ 85 mm</p>
+<h1>KERK VAN BRAKEL</h1>
+
+<div class="meta">
+Brakel, België<br>
+augustus 2026
+</div>
+
+<div class="line"></div>
+
+<div class="story">
+
+<p>
+Deze foto werd genomen tijdens een koude herfstochtend langs de Leie.
+De dichte mist zorgde ervoor dat de horizon volledig verdween en enkel
+de steiger zichtbaar bleef.
+</p>
+
+<br>
+
+<p>
+Ik wilde een beeld creëren dat rust en stilte uitstraalt waarbij de
+kijker zelf de ruimte kan invullen die door de mist verborgen wordt.
+</p>
+
+</div>
+
+<div class="audio-box">
+
+<div class="audio-title">
+🎧 Luister naar het verhaal achter deze foto
+</div>
+
+<audio controls>
+<source src="../audi/mist-over-de-leie.mp3" type="audio/mpeg">
+</audio>
+
+</div>
+
+<div class="sections">
+
+<details>
+
+<summary>
+
+<div class="section-left">
+
+<svg class="icon" fill="none" viewBox="0 0 24 24"
+stroke-width="2" stroke="currentColor">
+<path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+<circle cx="12" cy="13" r="4"/>
+</svg>
+
+Technische gegevens
+
+</div>
+
+▼
+
+</summary>
+
+<ul>
+<li>Camera: Sony A7 IV</li>
+<li>Lens: Sony FE 200mm</li>
+<li>30 seconden</li>
+<li>f/11</li>
+<li>ISO 100</li>
+<li>ND1000-filter</li>
+</ul>
+
+</details>
+
+<details>
+
+<summary>
+
+<div class="section-left">
+
+<svg class="icon" fill="none" viewBox="0 0 24 24"
+stroke-width="2" stroke="currentColor">
+<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+<circle cx="12" cy="10" r="3"/>
+</svg>
+
+Locatie
+
+</div>
+
+▼
+
+</summary>
+
+<p>
+Leie, Oudenaarde - Oost-Vlaanderen
+</p>
+
+</details>
+
+<details>
+
+<summary>
+
+<div class="section-left">
+
+<svg class="icon" fill="none" viewBox="0 0 24 24"
+stroke-width="2" stroke="currentColor">
+<rect x="3" y="3" width="18" height="18"/>
+<circle cx="8.5" cy="8.5" r="1.5"/>
+<polyline points="21 15 16 10 5 21"/>
+</svg>
+
+Meer uit deze reeks
+
+</div>
+
+▼
+
+</summary>
+
+<p>
+Mist over de Leie<br>
+Pier van Blankenberge<br>
+Kerk van Brakel
+</p>
+
+</details>
+
+</div>
+
+<div class="bottom">
+
+<div class="back">
+    <a href="../index.html">
+        ← Terug naar overzicht
+    </a>
+</div>
+
+<div class="signature">
+
+<div class="signature-name">
+Philippe Verlinde
+</div>
+
+<div class="signature-tag">
+CAPTURED MOMENTS<br>
+LASTING STORIES
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
