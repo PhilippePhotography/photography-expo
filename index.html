@@ -1,2 +1,96 @@
-<link rel="stylesheet" href="css/style.css">
+<!DOCTYPE html>
 
+<html lang="nl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>
+Philippe Verlinde
+</title>
+
+<link rel="stylesheet"
+      href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <header class="site-header">
+
+        <h1>
+            PHILIPPE VERLINDE
+        </h1>
+
+        <div class="site-subtitle">
+            FINE ART PHOTOGRAPHY
+        </div>
+
+    </header>
+
+    <div id="gallery"
+         class="gallery">
+
+    </div>
+
+    <div class="footer">
+
+        CAPTURED MOMENTS<br>
+        LASTING STORIES
+
+    </div>
+
+</div>
+
+<script>
+
+fetch("data/gallery.json")
+
+.then(response => response.json())
+
+.then(data => {
+
+    const gallery =
+        document.getElementById("gallery");
+
+    data.forEach(photo => {
+
+        const card = document
+            .createElement("a");
+
+        card.className = "card";
+
+        card.href = photo.page;
+
+        card.innerHTML =
+
+        `
+        <img src="${photo.image}"
+             alt="${photo.title}">
+
+        <div class="card-title">
+            ${photo.title}
+        </div>
+
+        <div class="card-meta">
+            ${photo.location} · ${photo.year}
+        </div>
+        `;
+
+        gallery.appendChild(card);
+
+    });
+
+});
+
+</script>
+
+</body>
+
+</html>
