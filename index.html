@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="nl">
 
 <head>
@@ -9,12 +8,137 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<title>
-Philippe Verlinde
-</title>
+<title>Philippe Verlinde</title>
 
-<link rel="stylesheet"
-      href="css/style.css">
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#ffffff;
+    color:#222;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+
+.container{
+    max-width:1400px;
+    margin:auto;
+    padding:50px 30px;
+}
+
+.site-header{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.site-header h1{
+    font-size:42px;
+    font-weight:300;
+    letter-spacing:6px;
+}
+
+.site-subtitle{
+    margin-top:10px;
+    color:#888;
+    font-size:14px;
+    letter-spacing:3px;
+}
+
+.gallery{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(450px,1fr));
+
+    gap:60px;
+}
+
+.card{
+    text-decoration:none;
+    color:#222;
+}
+
+.card img{
+
+    width:100%;
+    height:350px;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:0.3s;
+}
+
+.card:hover img{
+    transform:scale(1.02);
+}
+
+.card-title{
+
+    text-align:center;
+
+    margin-top:18px;
+
+    font-size:24px;
+
+    font-weight:400;
+
+    letter-spacing:2px;
+}
+
+.card-meta{
+
+    text-align:center;
+
+    margin-top:8px;
+
+    color:#777;
+
+    letter-spacing:1px;
+}
+
+.footer{
+
+    text-align:center;
+
+    margin-top:100px;
+
+    color:#777;
+
+    font-size:12px;
+
+    letter-spacing:3px;
+
+    line-height:2;
+}
+
+@media(max-width:768px){
+
+    .container{
+        padding:25px;
+    }
+
+    .gallery{
+        grid-template-columns:1fr;
+        gap:40px;
+    }
+
+    .site-header h1{
+        font-size:28px;
+    }
+
+    .card img{
+        height:250px;
+    }
+}
+
+</style>
 
 </head>
 
@@ -24,9 +148,7 @@ Philippe Verlinde
 
     <header class="site-header">
 
-        <h1>
-            PHILIPPE VERLINDE
-        </h1>
+        <h1>PHILIPPE VERLINDE</h1>
 
         <div class="site-subtitle">
             FINE ART PHOTOGRAPHY
@@ -36,7 +158,6 @@ Philippe Verlinde
 
     <div id="gallery"
          class="gallery">
-
     </div>
 
     <div class="footer">
@@ -61,36 +182,45 @@ fetch("data/gallery.json")
 
     data.forEach(photo => {
 
-        const card = document
-            .createElement("a");
-
-        card.className = "card";
+        const card =
+            document.createElement("a");
 
         card.href = photo.page;
 
-        card.innerHTML =
+        card.className = "card";
 
-        `
-        <img src="${photo.image}"
-             alt="${photo.title}">
+        card.innerHTML = `
 
-        <div class="card-title">
-            ${photo.title}
-        </div>
+            <img src="${photo.image}"
+                 alt="${photo.title}">
 
-        <div class="card-meta">
-            ${photo.location} · ${photo.year}
-        </div>
+            <div class="card-title">
+                ${photo.title}
+            </div>
+
+            <div class="card-meta">
+                ${photo.location} · ${photo.year}
+            </div>
+
         `;
 
         gallery.appendChild(card);
 
     });
 
+})
+
+.catch(error => {
+
+    console.error(error);
+
+    document.getElementById("gallery").innerHTML =
+
+        "<p>Fout bij het laden van gallery.json</p>";
+
 });
 
 </script>
 
 </body>
-
 </html>
