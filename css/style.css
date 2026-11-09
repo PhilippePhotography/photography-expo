@@ -1,81 +1,19 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+.signature-block{
+    text-align:right;
+    margin-top:40px;
 }
 
-body{
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-    background:#fff;
-    color:#222;
+.signature{
+    font-family:'Allura',cursive;
+    font-size:42px;
+    color:#111;
 }
 
-.container{
-    max-width:1200px;
-    margin:auto;
-    padding:40px;
-}
-
-.site-header{
-    text-align:center;
-    margin-bottom:60px;
-}
-
-.site-header h1{
-    letter-spacing:4px;
-    font-weight:300;
-}
-
-.site-subtitle{
-    margin-top:10px;
-    color:#777;
+.signature-tagline{
+    margin-top:-5px;
+    font-size:10px;
     letter-spacing:2px;
-    font-size:12px;
-}
-
-.gallery{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
-    gap:50px;
-}
-
-.card{
-    text-decoration:none;
-    color:#222;
-}
-
-.card img{
-    width:100%;
-    display:block;
-}
-
-.card-title{
-    margin-top:15px;
-    text-align:center;
-    font-size:22px;
-}
-
-.card-meta{
-    margin-top:5px;
-    text-align:center;
     color:#777;
-}
-
-.footer{
-    margin-top:80px;
-    text-align:center;
-    color:#777;
-}
-
-@media(max-width:768px){
-
-    .container{
-        padding:25px;
-    }
-
-    .gallery{
-        grid-template-columns:1fr;
-    }
 }
 
 /* GALERIJ */
