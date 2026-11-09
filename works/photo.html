@@ -55,7 +55,7 @@ const params = new URLSearchParams(window.location.search);
 
 const photoId = params.get("id");
 
-fetch("data/photos.json")
+fetch("../data/photos.json")
 .then(response => response.json())
 .then(data => {
 
