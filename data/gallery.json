@@ -11,7 +11,14 @@
     "title": "Pier van Blankenberge",
     "location": "Blankenberge",
     "year": "2026",
-    "image": "photos/pier.jpg",
+    "image": "photos/pier-blankenberge.jpg",
     "page": "works/pier-van-blankenberge.html"
+  },
+    {
+    "title": "Kerk van Brakel",
+    "location": "Opbrakel",
+    "year": "2026",
+    "image": "photos/kerk-brakel.jpg",
+    "page": "works/kerk-van-brakel.html"
   }
 ]
