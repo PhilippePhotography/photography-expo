@@ -8,10 +8,10 @@
   },
 
   {
-    "title": "Winter aan de Schelde",
-    "location": "Antwerpen",
+    "title": "Pier van Blankenberge",
+    "location": "Blankenberge",
     "year": "2026",
-    "image": "photos/winter-aan-de-schelde.jpg",
-    "page": "works/test.html"
+    "image": "photos/pier.jpg",
+    "page": "works/pier-van-blankenberge.html"
   }
 ]
