@@ -193,12 +193,31 @@ fetch("../data/gallery.json")
 
     // FOTO SELECTEREN VIA URL
 
-    const params = new URLSearchParams(window.location.search);
-    const photoName = params.get("photo");
 
-    const photo = data.find(item =>
-        item.image.split("/").pop().replace(".jpg", "") === photoName
-    );
+const params = new URLSearchParams(window.location.search);
+
+const photoName = params.get("photo");
+
+// Bestandsnamen normaliseren
+function normalizeName(value) {
+
+    return String(value || "")
+        .split("/")
+        .pop()
+        .replace(/\.[^.]+$/, "")
+        .trim()
+        .toLowerCase();
+
+}
+
+// Juiste foto zoeken in JSON
+const photo = data.find(item =>
+    normalizeName(item.image) === normalizeName(photoName)
+);
+
+console.log("Gezochte foto:", photoName);
+console.log("Gevonden foto:", photo);
+
 
     if (!photo) {
         document.querySelector(".container").innerHTML =
