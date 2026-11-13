@@ -182,7 +182,13 @@ body {
 
 <script>
 
-fetch("data/gallery.json")
+
+const gallery = document.getElementById("gallery");
+
+// Basisadres van je GitHub Pages website
+const baseUrl = "/photography-expo/";
+
+fetch(baseUrl + "data/gallery.json")
 
 .then(response => {
 
@@ -196,49 +202,44 @@ fetch("data/gallery.json")
 
 .then(data => {
 
-    const gallery = document.getElementById("gallery");
-
     gallery.innerHTML = "";
 
     data.forEach(photo => {
 
-        // FOTONAAM OPHALEN UIT JSON
-
+        // Bestandsnaam zonder extensie ophalen
         const photoName = photo.image
             .split("/")
             .pop()
             .replace(/\.[^.]+$/, "");
 
-
-        // LINK NAAR DYNAMISCHE DETAILPAGINA
-
-        const card = document.createElement("a");
-
-        card.href = "works/foto.html?photo=" +
+        // Dynamische URL samenstellen
+        const detailUrl = baseUrl +
+            "works/foto.html?photo=" +
             encodeURIComponent(photoName);
 
+        console.log("Foto:", photo.title);
+        console.log("Link:", detailUrl);
+
+        // Kaart aanmaken
+        const card = document.createElement("a");
+
+        card.href = detailUrl;
         card.className = "card";
 
-
-        // FOTO
-
+        // Afbeelding
         const image = document.createElement("img");
 
-        image.src = photo.image;
+        image.src = baseUrl + photo.image;
         image.alt = photo.title;
         image.loading = "lazy";
 
-
-        // TITEL
-
+        // Titel
         const title = document.createElement("div");
 
         title.className = "card-title";
         title.textContent = photo.title;
 
-
-        // LOCATIE EN JAAR
-
+        // Locatie en jaar
         const meta = document.createElement("div");
 
         meta.className = "card-meta";
@@ -248,9 +249,7 @@ fetch("data/gallery.json")
             .filter(Boolean)
             .join(" · ");
 
-
-        // ELEMENTEN SAMENVOEGEN
-
+        // Alles samenvoegen
         card.appendChild(image);
         card.appendChild(title);
         card.appendChild(meta);
@@ -265,12 +264,12 @@ fetch("data/gallery.json")
 
     console.error("Fout:", error);
 
-    document.getElementById("gallery").innerHTML =
-
+    gallery.innerHTML =
         "<p>Fout bij het laden van de fotogalerij.</p>";
 
 });
 
+      
 </script>
 
 </body>
