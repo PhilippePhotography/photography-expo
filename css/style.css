@@ -201,4 +201,89 @@ align-items:flex-start;
 .signature{
 text-align:left;
 }
+
+
+/* TECHNISCHE GEGEVENS ONDER DE FOTO */
+
+.photo-settings {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+
+    margin-top: 55px;
+    margin-bottom: 28px;
+
+    color: #333;
+    font-size: 23px;
+}
+
+/* IEDER GEGEVEN */
+
+.photo-settings-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 5px 12px;
+    white-space: nowrap;
+}
+
+/* SUBTIELE SCHEIDING */
+
+.photo-settings-item:not(:first-child) {
+    border-left: 1px solid #ddd;
+}
+
+/* LIJNICONEN */
+
+.photo-settings-item svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+
+    stroke: #888;
+    stroke-width: 1.6;
+    fill: none;
+}
+
+/* TITEL */
+
+#title {
+    font-size: 64px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    line-height: 1.15;
+}
+
+/* MOBIELE WEERGAVE */
+
+@media (max-width: 768px) {
+
+    .photo-settings {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 12px;
+        margin-top: 30px;
+        margin-bottom: 22px;
+        font-size: 18px;
+    }
+
+    .photo-settings-item {
+        justify-content: flex-start;
+        padding: 5px 8px;
+    }
+
+    .photo-settings-item:nth-child(odd) {
+        border-left: none;
+    }
+
+    .photo-settings-item:nth-child(even) {
+        border-left: 1px solid #ddd;
+    }
+
+    #title {
+        font-size: 34px;
+        letter-spacing: 2px;
+    }
+
 }
