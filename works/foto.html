@@ -663,12 +663,26 @@ fetch("../data/gallery.json")
 
 
     // =================================
-    // VERHAAL
+    // VERHAAL MET MEERDERE ALINEA'S
     // =================================
-
-    document.getElementById("story").textContent =
-
-        photo.text || "";
+      
+      const story = document.getElementById("story");
+      
+      story.innerHTML = "";
+      
+      if (photo.text) {
+      
+          photo.text.split(/\n\n+/).forEach(paragraph => {
+      
+              const p = document.createElement("p");
+      
+              p.textContent = paragraph.trim();
+      
+              story.appendChild(p);
+      
+          });
+      
+      }
 
 
 
