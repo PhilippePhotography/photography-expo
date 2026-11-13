@@ -1,0 +1,74 @@
+
+[
+  {
+    "title": "Mist over de Leie",
+    "location": "Oudenaarde",
+    "country": "België",
+    "region": "Oost-Vlaanderen",
+    "date": "maart 2025",
+    "year": "2025",
+
+    "image": "photos/mist-over-de-leie.jpg",
+    "page": "works/foto.html",
+
+    "audio": "audio/mist-over-de-leie.mp3",
+
+    "text": "Een mysterieuze ochtend aan de Leie. De mist omhult het landschap en zorgt voor een bijzondere sfeer van stilte en verstilling.",
+
+    "camera": "Sony A7 IV",
+    "lens": "Sony FE 200mm",
+    "aperture": "f/11",
+    "shutterspeed": "30 sec",
+    "iso": "100",
+    "focallength": "200 mm",
+    "NDfilter": "ND1000"
+  },
+
+  {
+    "title": "Pier van Blankenberge",
+    "location": "Blankenberge",
+    "country": "België",
+    "region": "West-Vlaanderen",
+    "date": "maart 2026",
+    "year": "2026",
+
+    "image": "photos/pier-blankenberge.jpg",
+    "page": "works/foto.html",
+
+    "audio": "audio/pier-van-blankenberge.mp3",
+
+    "text": "Waar water en lucht in elkaar overvloeien, lijkt de wereld even stil te staan. Een eenzaam gebouw wordt het middelpunt van pure verstilling.",
+
+    "camera": "Sony A7 IV",
+    "lens": "Sony FE 200mm",
+    "aperture": "f/11",
+    "shutterspeed": "30 sec",
+    "iso": "400",
+    "focallength": "200 mm",
+    "NDfilter": "ND1000"
+  },
+
+  {
+    "title": "Kerk van Brakel",
+    "location": "Opbrakel",
+    "country": "België",
+    "region": "Oost-Vlaanderen",
+    "date": "januari 2026",
+    "year": "2026",
+
+    "image": "photos/kerk-brakel.jpg",
+    "page": "works/foto.html",
+
+    "audio": "audio/test.mp3",
+
+    "text": "Een bijzonder zicht op de kerk van Brakel, vastgelegd in een sfeervol moment.",
+
+    "camera": "Sony A7 IV",
+    "lens": "Sony FE 24-70mm",
+    "aperture": "f/8",
+    "shutterspeed": "1/125 sec",
+    "iso": "100",
+    "focallength": "50 mm",
+    "NDfilter": ""
+  }
+]
