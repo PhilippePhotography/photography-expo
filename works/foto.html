@@ -3,351 +3,695 @@
 <html lang="nl">
 
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Fine Art Photography</title>
+<title>Philippe Verlinde | Fine Art Photography</title>
 
 <link rel="stylesheet" href="../css/style.css">
 
-</head>
+<style>
 
-<body>
+/* =================================
+   TECHNISCHE GEGEVENS ONDER DE FOTO
+================================= */
 
-<div class="container">
+.photo-settings {
 
-<div class="header">
+    display: grid;
 
-<div>
-<div class="logo">PHILIPPE VERLINDE</div>
-<div class="subtitle">FINE ART PHOTOGRAPHY</div>
-</div>
+    grid-template-columns: repeat(4, 1fr);
 
-<div class="hamburger">☰</div>
+    align-items: center;
 
-</div>
+    margin-top: 55px;
+    margin-bottom: 28px;
 
-<!-- FOTO -->
-
-<div class="featured-image">
-<img id="photo" src="" alt="">
-</div>
-
-// CAMERA-INSTELLINGEN BOVEN DE TITEL
-
-const settings = document.getElementById("camera-settings");
-
-// Gegevens en bijhorende lijniconen
-const cameraSettings = [
-
-    {
-        value: photo.aperture,
-        icon: `
-            <svg viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="9"/>
-                <circle cx="12" cy="12" r="3"/>
-                <path d="M12 3 L16 9 M21 12 L15 15 M12 21 L8 15 M3 12 L9 9"/>
-            </svg>
-        `
-    },
-
-    {
-        value: photo.shutterspeed,
-        icon: `
-            <svg viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="9"/>
-                <path d="M12 7 V12 L16 14"/>
-                <path d="M8 2 L6 4 M16 2 L18 4"/>
-            </svg>
-        `
-    },
-
-    {
-        value: photo.iso ? "ISO " + photo.iso : "",
-        icon: `
-            <svg viewBox="0 0 24 24">
-                <rect x="3" y="4" width="18" height="16" rx="1"/>
-                <path d="M7 8 H17 M7 12 H17 M7 16 H13"/>
-            </svg>
-        `
-    },
-
-    {
-        value: photo.focallength,
-        icon: `
-            <svg viewBox="0 0 24 24">
-                <path d="M3 8 H7 L9 5 H15 L17 8 H21 V19 H3 Z"/>
-                <circle cx="12" cy="13" r="4"/>
-            </svg>
-        `
-    }
-
-];
-
-// Oude inhoud verwijderen
-settings.innerHTML = "";
-
-// Alleen ingevulde gegevens weergeven
-cameraSettings.forEach(item => {
-
-    if (!item.value) return;
-
-    const element = document.createElement("div");
-
-    element.className = "photo-settings-item";
-
-    element.innerHTML = item.icon;
-
-    const text = document.createElement("span");
-
-    text.textContent = item.value;
-
-    element.appendChild(text);
-
-    settings.appendChild(element);
-
-});
-
-
-<!-- TITEL -->
-
-<h1 id="title"></h1>
-
-<!-- LOCATIE EN DATUM -->
-
-<div class="meta" id="meta"></div>
-
-<div class="line"></div>
-
-<!-- VERHAAL -->
-
-<div class="story">
-<p id="story"></p>
-</div>
-
-<!-- AUDIO -->
-
-<div class="audio-box" id="audio-box">
-
-<div class="audio-title">
-🎧 Luister naar het verhaal achter deze foto
-</div>
-
-<audio id="audio" controls>
-</audio>
-
-</div>
-
-<!-- TECHNISCHE GEGEVENS -->
-
-<div class="sections">
-
-<details id="technical-section">
-
-<summary>
-
-<div class="section-left">
-
-<svg class="icon" fill="none" viewBox="0 0 24 24"
-stroke-width="2" stroke="currentColor">
-
-<path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
-<circle cx="12" cy="13" r="4"/>
-
-</svg>
-
-Technische gegevens
-
-</div>
-
-▼
-
-</summary>
-
-<ul id="technical-data"></ul>
-
-</details>
-
-<!-- LOCATIE -->
-
-<details>
-
-<summary>
-
-<div class="section-left">
-
-<svg class="icon" fill="none" viewBox="0 0 24 24"
-stroke-width="2" stroke="currentColor">
-
-<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-<circle cx="12" cy="10" r="3"/>
-
-</svg>
-
-Locatie
-
-</div>
-
-▼
-
-</summary>
-
-<p id="location"></p>
-
-</details>
-
-<!-- MEER UIT DE REEKS -->
-
-<details>
-
-<summary>
-
-<div class="section-left">
-
-<svg class="icon" fill="none" viewBox="0 0 24 24"
-stroke-width="2" stroke="currentColor">
-
-<rect x="3" y="3" width="18" height="18"/>
-<circle cx="8.5" cy="8.5" r="1.5"/>
-<polyline points="21 15 16 10 5 21"/>
-
-</svg>
-
-Meer uit deze reeks
-
-</div>
-
-▼
-
-</summary>
-
-<div id="other-photos"></div>
-
-</details>
-
-</div>
-
-<!-- ONDERAAN -->
-
-<div class="bottom">
-
-<div class="back">
-<a href="../index.html">
-← Terug naar overzicht
-</a>
-</div>
-
-<div class="signature">
-
-<div class="signature-name">
-Philippe Verlinde
-</div>
-
-<div class="signature-tag">
-CAPTURED MOMENTS<br>
-LASTING STORIES
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-<script>
-
-// JSON INLEZEN
-
-fetch("../data/gallery.json")
-.then(response => response.json())
-.then(data => {
-
-    // FOTO SELECTEREN VIA URL
-
-
-const params = new URLSearchParams(window.location.search);
-
-const photoName = params.get("photo");
-
-// Bestandsnamen normaliseren
-function normalizeName(value) {
-
-    return String(value || "")
-        .split("/")
-        .pop()
-        .replace(/\.[^.]+$/, "")
-        .trim()
-        .toLowerCase();
+    color: #333;
+    font-size: 23px;
 
 }
 
-// Juiste foto zoeken in JSON
-const photo = data.find(item =>
-    normalizeName(item.image) === normalizeName(photoName)
-);
+.photo-settings-item {
 
-console.log("Gezochte foto:", photoName);
-console.log("Gevonden foto:", photo);
+    display: flex;
 
+    align-items: center;
 
-    if (!photo) {
-        document.querySelector(".container").innerHTML =
-            "<h1>Foto niet gevonden</h1>";
-        return;
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 5px 12px;
+
+    white-space: nowrap;
+
+}
+
+.photo-settings-item:not(:first-child) {
+
+    border-left: 1px solid #ddd;
+
+}
+
+.photo-settings-item svg {
+
+    width: 20px;
+    height: 20px;
+
+    flex-shrink: 0;
+
+    stroke: #888;
+    stroke-width: 1.6;
+
+    fill: none;
+
+}
+
+/* =================================
+   TITEL
+================================= */
+
+#title {
+
+    font-size: 64px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    line-height: 1.15;
+
+}
+
+/* =================================
+   VERHAAL
+================================= */
+
+.story p {
+
+    line-height: 1.8;
+
+}
+
+/* =================================
+   ANDERE FOTO'S
+================================= */
+
+#other-photos a {
+
+    display: block;
+
+    color: inherit;
+
+    text-decoration: none;
+
+    margin-bottom: 12px;
+
+}
+
+#other-photos a:hover {
+
+    text-decoration: underline;
+
+}
+
+/* =================================
+   MOBIELE WEERGAVE
+================================= */
+
+@media (max-width: 768px) {
+
+    .photo-settings {
+
+        grid-template-columns: repeat(2, 1fr);
+
+        row-gap: 12px;
+
+        margin-top: 30px;
+        margin-bottom: 22px;
+
+        font-size: 18px;
+
     }
 
+    .photo-settings-item {
+
+        justify-content: flex-start;
+
+        padding: 5px 8px;
+
+    }
+
+    .photo-settings-item:nth-child(odd) {
+
+        border-left: none;
+
+    }
+
+    .photo-settings-item:nth-child(even) {
+
+        border-left: 1px solid #ddd;
+
+    }
+
+    #title {
+
+        font-size: 34px;
+
+        letter-spacing: 2px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<!-- =================================
+     HEADER
+================================= -->
+
+<div class="header">
+
+    <div>
+
+        <div class="logo">
+            PHILIPPE VERLINDE
+        </div>
+
+        <div class="subtitle">
+            FINE ART PHOTOGRAPHY
+        </div>
+
+    </div>
+
+    <div class="hamburger">
+        ☰
+    </div>
+
+</div>
+
+
+<!-- =================================
+     FOTO
+================================= -->
+
+<div class="featured-image">
+
+    <img id="photo" src="" alt="">
+
+</div>
+
+
+<!-- =================================
+     CAMERA-INSTELLINGEN
+================================= -->
+
+<div class="photo-settings" id="camera-settings">
+
+</div>
+
+
+<!-- =================================
+     TITEL
+================================= -->
+
+<h1 id="title"></h1>
+
+
+<!-- =================================
+     LOCATIE EN DATUM
+================================= -->
+
+<div class="meta" id="meta"></div>
+
+
+<div class="line"></div>
+
+
+<!-- =================================
+     VERHAAL
+================================= -->
+
+<div class="story">
+
+    <p id="story"></p>
+
+</div>
+
+
+<!-- =================================
+     AUDIO
+================================= -->
+
+<div class="audio-box" id="audio-box">
+
+    <div class="audio-title">
+
+        🎧 Luister naar het verhaal achter deze foto
+
+    </div>
+
+    <audio id="audio" controls>
+
+    </audio>
+
+</div>
+
+
+<!-- =================================
+     UITKLAPBARE SECTIES
+================================= -->
+
+<div class="sections">
+
+
+    <!-- TECHNISCHE GEGEVENS -->
+
+    <details id="technical-section">
+
+        <summary>
+
+            <div class="section-left">
+
+                <svg class="icon"
+                     fill="none"
+                     viewBox="0 0 24 24"
+                     stroke-width="2"
+                     stroke="currentColor">
+
+                    <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+
+                    <circle cx="12" cy="13" r="4"/>
+
+                </svg>
+
+                Technische gegevens
+
+            </div>
+
+            ▼
+
+        </summary>
+
+        <ul id="technical-data"></ul>
+
+    </details>
+
+
+    <!-- LOCATIE -->
+
+    <details>
+
+        <summary>
+
+            <div class="section-left">
+
+                <svg class="icon"
+                     fill="none"
+                     viewBox="0 0 24 24"
+                     stroke-width="2"
+                     stroke="currentColor">
+
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+
+                    <circle cx="12" cy="10" r="3"/>
+
+                </svg>
+
+                Locatie
+
+            </div>
+
+            ▼
+
+        </summary>
+
+        <p id="location"></p>
+
+    </details>
+
+
+    <!-- MEER UIT DE REEKS -->
+
+    <details>
+
+        <summary>
+
+            <div class="section-left">
+
+                <svg class="icon"
+                     fill="none"
+                     viewBox="0 0 24 24"
+                     stroke-width="2"
+                     stroke="currentColor">
+
+                    <rect x="3" y="3" width="18" height="18"/>
+
+                    <circle cx="8.5" cy="8.5" r="1.5"/>
+
+                    <polyline points="21 15 16 10 5 21"/>
+
+                </svg>
+
+                Meer uit deze reeks
+
+            </div>
+
+            ▼
+
+        </summary>
+
+        <div id="other-photos"></div>
+
+    </details>
+
+
+</div>
+
+
+<!-- =================================
+     ONDERAAN
+================================= -->
+
+<div class="bottom">
+
+
+    <div class="back">
+
+        <a href="../index.html">
+
+            ← Terug naar overzicht
+
+        </a>
+
+    </div>
+
+
+    <div class="signature">
+
+        <div class="signature-name">
+
+            Philippe Verlinde
+
+        </div>
+
+        <div class="signature-tag">
+
+            CAPTURED MOMENTS<br>
+            LASTING STORIES
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+</div>
+
+
+<!-- =================================
+     JAVASCRIPT
+================================= -->
+
+<script>
+
+
+// =================================
+// JSON INLEZEN
+// =================================
+
+fetch("../data/gallery.json")
+
+.then(response => {
+
+    if (!response.ok) {
+
+        throw new Error("gallery.json kon niet worden geladen");
+
+    }
+
+    return response.json();
+
+})
+
+
+.then(data => {
+
+
+    // =================================
+    // JUISTE FOTO SELECTEREN
+    // =================================
+
+    const params = new URLSearchParams(window.location.search);
+
+    const photoName = params.get("photo");
+
+
+    // Bestandsnaam normaliseren
+
+    function normalizeName(value) {
+
+        return String(value || "")
+            .split("/")
+            .pop()
+            .replace(/\.[^.]+$/, "")
+            .trim()
+            .toLowerCase();
+
+    }
+
+
+    // Foto zoeken in JSON
+
+    const photo = data.find(item =>
+
+        normalizeName(item.image) === normalizeName(photoName)
+
+    );
+
+
+    // Foto niet gevonden
+
+    if (!photo) {
+
+        document.querySelector(".container").innerHTML =
+
+            "<h1>Foto niet gevonden</h1>" +
+            "<p><a href='../index.html'>Terug naar overzicht</a></p>";
+
+        return;
+
+    }
+
+
+    // =================================
     // PAGINATITEL
+    // =================================
 
     document.title = photo.title + " | Philippe Verlinde";
 
+
+    // =================================
     // FOTO
+    // =================================
 
     const image = document.getElementById("photo");
 
     image.src = "../" + photo.image;
+
     image.alt = photo.title;
 
-    // CAMERA-INSTELLINGEN BOVEN DE TITEL
+
+    // =================================
+    // CAMERA-INSTELLINGEN
+    // =================================
 
     const settings = document.getElementById("camera-settings");
 
-    settings.textContent = [
-        photo.aperture,
-        photo.shutterspeed,
-        "ISO " + photo.iso,
-        photo.focallength
-    ].filter(Boolean).join("    ");
 
+    // SVG-iconen en gegevens
+
+    const cameraSettings = [
+
+        {
+
+            value: photo.aperture,
+
+            icon: `
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="9"/>
+                    <circle cx="12" cy="12" r="3"/>
+                    <path d="M12 3 L16 9 M21 12 L15 15 M12 21 L8 15 M3 12 L9 9"/>
+                </svg>
+            `
+
+        },
+
+        {
+
+            value: photo.shutterspeed,
+
+            icon: `
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="9"/>
+                    <path d="M12 7 V12 L16 14"/>
+                    <path d="M8 2 L6 4 M16 2 L18 4"/>
+                </svg>
+            `
+
+        },
+
+        {
+
+            value: photo.iso ? "ISO " + photo.iso : "",
+
+            icon: `
+                <svg viewBox="0 0 24 24">
+                    <rect x="3" y="4" width="18" height="16" rx="1"/>
+                    <path d="M7 8 H17 M7 12 H17 M7 16 H13"/>
+                </svg>
+            `
+
+        },
+
+        {
+
+            value: photo.focallength,
+
+            icon: `
+                <svg viewBox="0 0 24 24">
+                    <path d="M3 8 H7 L9 5 H15 L17 8 H21 V19 H3 Z"/>
+                    <circle cx="12" cy="13" r="4"/>
+                </svg>
+            `
+
+        }
+
+    ];
+
+
+    // Oude inhoud verwijderen
+
+    settings.innerHTML = "";
+
+
+    // Alleen ingevulde gegevens weergeven
+
+    cameraSettings.forEach(item => {
+
+        if (!item.value) return;
+
+
+        const element = document.createElement("div");
+
+        element.className = "photo-settings-item";
+
+
+        // Icoon toevoegen
+
+        element.innerHTML = item.icon;
+
+
+        // Tekst toevoegen
+
+        const text = document.createElement("span");
+
+        text.textContent = item.value;
+
+        element.appendChild(text);
+
+
+        settings.appendChild(element);
+
+    });
+
+
+
+    // =================================
     // TITEL
+    // =================================
 
     document.getElementById("title").textContent =
+
         photo.title.toUpperCase();
 
+
+
+    // =================================
     // LOCATIE EN DATUM
+    // =================================
 
-    document.getElementById("meta").innerHTML =
-        [photo.location, photo.country].filter(Boolean).join(", ") +
-        "<br>" + (photo.date || photo.year || "");
+    const meta = document.getElementById("meta");
 
+    const locationDate = [
+
+        photo.location,
+
+        photo.country
+
+    ].filter(Boolean).join(", ");
+
+
+    const date = photo.date || photo.year || "";
+
+
+    meta.textContent = locationDate;
+
+
+    if (date) {
+
+        meta.appendChild(document.createElement("br"));
+
+        meta.appendChild(document.createTextNode(date));
+
+    }
+
+
+
+    // =================================
     // VERHAAL
+    // =================================
 
     document.getElementById("story").textContent =
+
         photo.text || "";
 
+
+
+    // =================================
     // AUDIO
+    // =================================
 
     const audioBox = document.getElementById("audio-box");
+
     const audio = document.getElementById("audio");
+
 
     if (photo.audio) {
 
         const source = document.createElement("source");
 
         source.src = "../" + photo.audio;
+
         source.type = "audio/mpeg";
 
         audio.appendChild(source);
+
+        audio.load();
 
     } else {
 
@@ -355,75 +699,138 @@ console.log("Gevonden foto:", photo);
 
     }
 
+
+
+    // =================================
     // TECHNISCHE GEGEVENS
+    // =================================
 
     const technicalData = document.getElementById("technical-data");
 
+
     const technicalFields = [
+
         ["Camera", photo.camera],
+
         ["Lens", photo.lens],
+
         ["Diafragma", photo.aperture],
+
         ["Sluitertijd", photo.shutterspeed],
+
         ["ISO", photo.iso],
+
         ["Brandpuntsafstand", photo.focallength],
+
         ["ND-filter", photo.NDfilter]
+
     ];
+
 
     technicalFields.forEach(([label, value]) => {
 
-        if (value) {
+        if (!value) return;
 
-            const li = document.createElement("li");
 
-            li.textContent = label + ": " + value;
+        const li = document.createElement("li");
 
-            technicalData.appendChild(li);
+        li.textContent = label + ": " + value;
 
-        }
+        technicalData.appendChild(li);
 
     });
 
+
+    // Geen technische gegevens?
+    // Dan de volledige sectie verbergen.
+
+    if (technicalData.children.length === 0) {
+
+        document.getElementById("technical-section").style.display = "none";
+
+    }
+
+
+
+    // =================================
     // LOCATIE
+    // =================================
 
-    document.getElementById("location").textContent =
-        [photo.location, photo.region, photo.country]
-        .filter(Boolean)
-        .join(" - ");
+    const locationText = [
 
+        photo.location,
+
+        photo.region,
+
+        photo.country
+
+    ].filter(Boolean).join(" - ");
+
+
+    document.getElementById("location").textContent = locationText;
+
+
+
+    // =================================
     // ANDERE FOTO'S
+    // =================================
 
     const otherPhotos = document.getElementById("other-photos");
 
+
     data.forEach(item => {
 
-        if (item !== photo) {
 
-            const link = document.createElement("a");
+        // Huidige foto overslaan
 
-            const name = item.image.split("/").pop()
-                .replace(".jpg", "");
+        if (item === photo) return;
 
-            link.href = "foto.html?photo=" + encodeURIComponent(name);
 
-            link.textContent = item.title;
+        const link = document.createElement("a");
 
-            link.style.display = "block";
 
-            otherPhotos.appendChild(link);
+        const name = normalizeName(item.image);
 
-        }
+
+        // Link naar dezelfde dynamische pagina
+
+        link.href = "foto.html?photo=" +
+
+            encodeURIComponent(name);
+
+
+        link.textContent = item.title;
+
+
+        otherPhotos.appendChild(link);
 
     });
 
+
+
 })
+
+
+// =================================
+// FOUTAFHANDELING
+// =================================
+
 .catch(error => {
 
-    console.error("Fout bij laden JSON:", error);
+    console.error("Fout bij laden van foto:", error);
+
+    document.querySelector(".container").innerHTML =
+
+        "<h1>Er is een probleem opgetreden.</h1>" +
+        "<p>De fotogegevens konden niet worden geladen.</p>" +
+        "<p><a href='../index.html'>Terug naar overzicht</a></p>";
 
 });
 
+
 </script>
 
-</body>
-</html>
 
+</body>
+
+</html>
